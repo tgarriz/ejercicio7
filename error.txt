@@ -1,0 +1,52 @@
+Name:         pingapp210-85d9bc9d4f-5rc8m
+Namespace:    arba
+Priority:     0
+Node:         minikube/192.168.49.2
+Start Time:   Thu, 14 Oct 2021 10:04:30 -0300
+Labels:       app=pingapp210
+              pod-template-hash=85d9bc9d4f
+Annotations:  <none>
+Status:       Pending
+IP:           172.17.0.9
+IPs:
+  IP:           172.17.0.9
+Controlled By:  ReplicaSet/pingapp210-85d9bc9d4f
+Containers:
+  pingapp210:
+    Container ID:   
+    Image:          nicopaez/pingapp:2.1.0
+    Image ID:       
+    Port:           4567/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       CreateContainerConfigError
+    Ready:          False
+    Restart Count:  0
+    Environment Variables from:
+      pingapp210-config-env  ConfigMap  Optional: false
+    Environment:             <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-lwxjt (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-lwxjt:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                    From               Message
+  ----     ------     ----                   ----               -------
+  Normal   Scheduled  5m18s                  default-scheduler  Successfully assigned arba/pingapp210-85d9bc9d4f-5rc8m to minikube
+  Warning  Failed     3m6s (x12 over 5m17s)  kubelet            Error: configmap "pingapp210-config-env" not found
+  Normal   Pulled     11s (x26 over 5m17s)   kubelet            Container image "nicopaez/pingapp:2.1.0" already present on machine
